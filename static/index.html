@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Leau Fit & Food</title>
+    <style>
+      :root {
+        --bg: #ffffff;
+        --fg: #0f172a;  /* slate-900 */
+        --muted: #c0a074; /* slate-500 */
+        --accent: #fd9a13; /* green-500 */
+        --accent-hover: #fb3d11; /* green-600 */
+        --border: #e2e8f0; /* slate-200 */
+      }
+      * { box-sizing: border-box; }
+      body { margin:0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif; color:var(--fg); background:var(--bg); }
+      .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+      header { position: sticky; top:0; backdrop-filter: blur(8px); background: rgba(255,255,255,.75); border-bottom:1px solid var(--border); }
+      nav { display:flex; align-items:center; justify-content:space-between; padding:12px 0; }
+      .brand { display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px; }
+      .logo {width:42px; height:42px; border-radius:8px; display:inline-block;background: no-repeat center / cover url("./logo.png"); /* of contain */}
+      .links a { color:var(--muted); text-decoration:none; margin-left:18px; }
+      .links a:hover { color:var(--fg); }
+      .btn { display:inline-block; padding:10px 16px; border-radius:12px; border:1px solid var(--border); text-decoration:none; }
+      .btn-primary { background:var(--accent); color:white; border-color:transparent; }
+      .btn-primary:hover { background:var(--accent-hover); }
+      .hero { padding:72px 0 56px; text-align:center; }
+      .hero h1 { font-size: clamp(28px, 4vw, 44px); line-height:1.15; margin:0 0 12px; }
+      .hero p { color:var(--muted); max-width:680px; margin:0 auto 24px; }
+      .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap:16px; }
+      .card { grid-column: span 12; border:1px solid var(--border); border-radius:16px; padding:20px; }
+      @media (min-width: 840px) {
+        .card.third { grid-column: span 4; }
+        .card.half { grid-column: span 6; }
+      }
+      section { padding:56px 0; }
+      h2 { font-size: clamp(22px, 3vw, 30px); margin:0 0 12px; }
+      .muted { color:var(--muted); }
+      footer { padding:28px 0; border-top:1px solid var(--border); color:var(--muted); font-size:14px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="brand">
+            <img class="logo" src="./leaufitfoodlogo.png" alt="Leau Fit &amp; Food" width="32" height="32" />
+            <span>Leau Fit &amp; Food</span>
+          </div>
+          <div class="links">
+            <a href="#home">Home</a>
+            <a href="#diensten">Diensten</a>
+            <a href="#over">Over</a>
+            <a href="#contact">Contact</a>
+            <a class="btn btn-primary" href="https://jouw-streamlit-app.streamlit.app">Inloggen</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="container">
+          <h1>Slimmer eten. Sterker bewegen. Simpel vol te houden.</h1>
+          <p>Op maat gemaakte voedings- en trainingsbegeleiding. Minimalistisch, duidelijk en gericht op resultaat — voor mensen die niet willen verdwalen in gedoe.</p>
+          <a class="btn btn-primary" href="https://jouw-streamlit-app.streamlit.app">Ga naar het cliëntenportaal</a>
+        </div>
+      </section>
+
+      <section id="diensten">
+        <div class="container">
+          <h2>Diensten</h2>
+          <p class="muted">Opvulteksten: omschrijf hier 3 kernpakketten. Hou het kort (max. 2 zinnen per kaart).</p>
+          <div class="grid">
+            <div class="card third">
+              <h3>Kickstart</h3>
+              <p class="muted">Intake, doelen, 2 weken plan. Snel overzicht en eerste resultaten.</p>
+            </div>
+            <div class="card third">
+              <h3>Coaching</h3>
+              <p class="muted">Wekelijkse check-ins, aanpassingen op voeding en training, duidelijke rapportage.</p>
+            </div>
+            <div class="card third">
+              <h3>Premium</h3>
+              <p class="muted">Alles uit Coaching plus intensievere begeleiding en extra analyse.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="over">
+        <div class="container">
+          <h2>Over</h2>
+          <div class="grid">
+            <div class="card half">
+              <p class="muted">Hier komt jouw verhaal: visie, aanpak, waarom je kiest voor eenvoud en duidelijkheid. Voeg later een foto en echte tekst toe.</p>
+            </div>
+            <div class="card half">
+              <p class="muted">Praktische info: werkregio (indien relevant), online/offline, specialisaties (bijv. vetverlies, krachtopbouw, leefstijl).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <h2>Contact</h2>
+          <div class="card">
+            <p class="muted">Vervang onderstaande placeholders.</p>
+            <p><strong>E-mail:</strong> coach@voorbeeld.nl</p>
+            <p><strong>Instagram:</strong> @fitfoodcoach</p>
+            <p><strong>KVK / btw / adres (optioneel)</strong></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">© <span id="y"></span> Fit &amp; Food — Alle rechten voorbehouden.</div>
+    </footer>
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  </body>
+</html>
