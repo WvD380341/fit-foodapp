@@ -7,6 +7,10 @@
       name="description"
       content="Leau Fit &amp; Food biedt 1-op-1 coaching in fitness en voeding voor mensen die blijvende resultaten willen met een heldere, persoonlijke aanpak."
     />
+    <link rel="icon" type="image/png" href="./leaufitfoodlogo.png" />
+    <link rel="apple-touch-icon" href="./leaufitfoodlogo.png" />
+    <!-- Elfsight Instagram Feed widget -->
+    <script src="https://static.elfsight.com/platform/platform.js" async></script>
     <title>Leau Fit &amp; Food | 1-op-1 fitness &amp; voedingscoaching</title>
     <style>
       :root {
@@ -514,10 +518,13 @@
       }
 
       .cards-3,
-      .success-grid,
       .testimonial-grid,
       .pricing-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .success-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .content-card,
@@ -1003,6 +1010,41 @@
         border-top: 1px solid rgba(15, 15, 16, 0.08);
       }
 
+      .instagram-strip {
+        padding: 28px 0;
+        border-bottom: 1px solid rgba(15, 15, 16, 0.06);
+        background: rgba(255, 255, 255, 0.6);
+      }
+
+      .instagram-strip-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 18px;
+        flex-wrap: wrap;
+      }
+
+      .instagram-strip-head span {
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: var(--fg-soft);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .instagram-strip-head a {
+        color: var(--accent-dark);
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: color var(--transition);
+      }
+
+      .instagram-strip-head a:hover {
+        color: var(--accent);
+      }
+
       .scroll-progress {
         position: fixed;
         inset: 0 auto auto 0;
@@ -1053,6 +1095,7 @@
         .success-grid,
         .testimonial-grid,
         .pricing-grid,
+        .pricing-duo,
         .path-grid,
         .faq-grid,
         .hero-kpis {
@@ -1284,6 +1327,50 @@
         }
       }
 
+      .pricing-duo {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 24px;
+        align-items: start;
+      }
+
+      .pricing-card.premium-hero {
+        transform: none;
+        padding: 42px;
+        box-shadow: 0 32px 80px rgba(15, 15, 16, 0.24), 0 0 0 2px rgba(253, 154, 19, 0.3);
+      }
+
+      .premium-badge {
+        display: block;
+        padding: 10px 16px;
+        border-radius: 14px;
+        background: rgba(253, 154, 19, 0.2);
+        color: var(--accent-dark);
+        font-weight: 700;
+        font-size: 0.88rem;
+        text-align: center;
+        line-height: 1.45;
+        margin-bottom: 20px;
+      }
+
+      .pricing-card.featured .premium-badge {
+        background: rgba(253, 154, 19, 0.22);
+        color: #f4a340;
+      }
+
+      .success-photo-wrapper {
+        margin-bottom: 18px;
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(15, 15, 16, 0.1);
+      }
+
+      .success-photo-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
       @media (prefers-reduced-motion: reduce) {
         html {
           scroll-behavior: auto;
@@ -1326,10 +1413,30 @@
             <a href="#ervaringen">Ervaringen</a>
             <a href="#succesverhalen">Succesverhalen</a>
             <a href="#waarom-kiezen">Waarom kiezen</a>
-            <a href="#contact" class="btn btn-primary">Plan een kennismaking</a>
+            <a href="#contact" class="btn btn-primary">Plan een intake</a>
             <a href="#faq">Veelgestelde vragen</a>
           </div>
         </nav>
+      </div>
+    </div>
+
+    <!--
+      INSTAGRAM WIDGET — Elfsight (gratis)
+      =====================================
+      1. Ga naar https://elfsight.com en maak een gratis account
+      2. Klik op "Create Widget" → kies "Instagram Feed"
+      3. Koppel je Instagram account @leau.fitnfood
+      4. Stel de widget in (layout, aantal foto's, etc.)
+      5. Klik op "Get Code" en kopieer het data-app-id (bijv. "abc123-...")
+      6. Vervang "JOUW-WIDGET-ID-HIER" hieronder door jouw ID
+    -->
+    <div class="instagram-strip">
+      <div class="container">
+        <div class="instagram-strip-head">
+          <span>Volg ons op Instagram</span>
+          <a href="https://www.instagram.com/leau.fitnfood" target="_blank" rel="noreferrer noopener">@leau.fitnfood ↗</a>
+        </div>
+        <div class="elfsight-app-0b88aa59-ef89-4679-b346-ba826aa44b2d" data-elfsight-app-lazy></div>
       </div>
     </div>
 
@@ -1344,7 +1451,7 @@
             </p>
 
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#contact">Vraag een intake aan</a>
+              <a class="btn btn-primary" href="#contact">Vraag een gratis intake aan</a>
               <a class="btn btn-secondary" href="#diensten">Bekijk de coaching</a>
             </div>
 
@@ -1421,52 +1528,36 @@
             </p>
           </div>
 
-          <div class="pricing-grid">
+          <div class="pricing-duo">
             <article class="pricing-card reveal">
-              <span class="tag">Instap</span>
-              <h3>Kickstart traject</h3>
-              <p>Voor wie snel wil starten met een duidelijk plan, heldere doelen en een sterke eerste structuur.</p>
+              <span class="tag">Basis Traject</span>
+              <h3>Basis Traject</h3>
+              <p>Perfect voor klanten die al wat discipline hebben en zelf actief aan de slag willen.</p>
               <div class="price">
-                <strong>4 weken</strong>
-                <span>gerichte opstart</span>
+                <strong>€100</strong>
+                <span>/ maand &nbsp;·&nbsp; totaal €500 voor 5 maanden</span>
               </div>
               <ul class="pricing-features">
-                <li>Intake en doelanalyse</li>
-                <li>Persoonlijk voedingsadvies</li>
-                <li>Trainingsopzet op maat</li>
-                <li>Concrete routines voor direct resultaat</li>
+                <li>Dagelijkse check-ins via app</li>
+                <li>Korte wekelijkse feedback (1x per week)</li>
+                <li>Geen calls</li>
+                <li>Reactietijd binnen 24–48 uur</li>
               </ul>
             </article>
 
-            <article class="pricing-card featured reveal">
-              <span class="tag">Meest gekozen</span>
-              <h3>1-op-1 coaching</h3>
-              <p>Volledige begeleiding voor duurzame progressie, wekelijkse feedback en constante verfijning.</p>
+            <article class="pricing-card featured premium-hero reveal">
+              <div class="premium-badge">⭐ Meeste mensen kiezen dit pakket voor de beste resultaten</div>
+              <h3>Premium Traject</h3>
+              <p>Voor klanten die maximale begeleiding en accountability willen en écht resultaten willen boeken.</p>
               <div class="price">
-                <strong>Doorlopend</strong>
-                <span>voor blijvende verandering</span>
+                <strong>€210</strong>
+                <span>/ maand &nbsp;·&nbsp; totaal €1.050 voor 5 maanden</span>
               </div>
               <ul class="pricing-features">
-                <li>Wekelijkse check-ins en evaluaties</li>
-                <li>Voeding en training geïntegreerd</li>
-                <li>Persoonlijke bijsturing op basis van progressie</li>
-                <li>Direct contact voor vragen en accountability</li>
-              </ul>
-            </article>
-
-            <article class="pricing-card reveal">
-              <span class="tag">Exclusief</span>
-              <h3>Intensief traject</h3>
-              <p>Voor klanten die maximale betrokkenheid willen, met extra contactmomenten en diepgaande begeleiding.</p>
-              <div class="price">
-                <strong>Intensief</strong>
-                <span>meer contact en verdieping</span>
-              </div>
-              <ul class="pricing-features">
-                <li>Extra intensieve coaching</li>
-                <li>Snellere feedbackloops</li>
-                <li>Diepere analyse van gewoontes en leefstijl</li>
-                <li>Meer begeleiding richting topresultaat</li>
+                <li>Dagelijkse check-ins via app</li>
+                <li>Uitgebreide wekelijkse feedback</li>
+                <li>Wekelijkse call (persoonlijk contact)</li>
+                <li>Snelle support en extra tips</li>
               </ul>
             </article>
           </div>
@@ -1510,44 +1601,51 @@
       </section>
 
       <section id="over">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">Over</span>
+          </div>
+        </div>
         <div class="container story-grid">
           <article class="story-card dark reveal">
             <span class="eyebrow">Over Leau Fit &amp; Food</span>
-            <h2>Geen quick fixes. Wel coaching die niveau uitstraalt.</h2>
+            <h2>Geen quick fixes. Een nieuw leven waar je trots en blij mee bent.</h2>
             <p>
-              Leau Fit &amp; Food helpt mensen die klaar zijn met losse adviezen en half werk. De focus ligt op een hoogwaardige,
-              persoonlijke ervaring waarin je je gezien voelt, begrijpt wat je doet en blijvend resultaat opbouwt.
+              Leau Fit &amp; Food is 100% online coaching. De focus ligt op het aanpassen van een levensstijl die je voor de rest van je leven kunt volhouden. Niet alleen een beter fysiek — maar een nieuwe levensstijl met meer structuur en rust.
+            </p>
+            <p style="margin-top: 14px; color: rgba(255,255,255,0.72); font-size: 1rem;">
+              Sport en voeding zijn niet het belangrijkste in het leven. Gelukkig met jezelf zijn wel. Dat begint met respect voor je eigen lichaam.
             </p>
             <ul class="story-stats">
               <li>
-                <strong>Persoonlijk</strong>
-                <span>Coaching afgestemd op mens, niet op template.</span>
+                <strong>Online coaching</strong>
+                <span>100% begeleiding op afstand, altijd bereikbaar.</span>
               </li>
               <li>
-                <strong>Realistisch</strong>
-                <span>Voeding en training die passen bij werk, gezin en sociale agenda.</span>
+                <strong>Nieuwe levensstijl</strong>
+                <span>Een aanpak die je verder draagt dan het traject.</span>
               </li>
               <li>
-                <strong>Professioneel</strong>
-                <span>Heldere communicatie, snelle opvolging en een verzorgde uitstraling.</span>
+                <strong>Meer dan fysiek</strong>
+                <span>Structuur, rust en trots op wie je bent.</span>
               </li>
               <li>
                 <strong>Duurzaam</strong>
-                <span>Resultaat dat niet stopt zodra motivatie even daalt.</span>
+                <span>Geen quick fixes. Blijvende verandering.</span>
               </li>
             </ul>
           </article>
 
           <article class="story-card reveal">
-            <h3>Voor wie deze coaching is</h3>
+            <h3>Voor wie is deze coaching?</h3>
             <p>
-              Voor mensen die serieus aan de slag willen met hun lichaam en leefstijl, maar geen zin hebben in ruis, extremen of een standaard online schema.
+              Online 1-op-1 coaching voor iedereen die klaar is om echt te investeren in zichzelf — niet alleen in een beter lichaam, maar in een leven met meer structuur en eigenwaarde.
             </p>
             <ul class="bullet-list">
-              <li>Je wilt vet verliezen zonder energieloos te leven.</li>
-              <li>Je wilt sterker worden met een plan dat bij je agenda past.</li>
-              <li>Je zoekt accountability en duidelijke begeleiding.</li>
-              <li>Je wilt één coach die voeding en training logisch samenbrengt.</li>
+              <li>Mensen die moeite hebben met vetverlies.</li>
+              <li>Mensen die moeite hebben met spiermassa opbouwen.</li>
+              <li>Mensen die weer trots op zichzelf willen zijn.</li>
+              <li>Mensen die structuur missen in hun leven.</li>
             </ul>
           </article>
         </div>
@@ -1558,10 +1656,6 @@
           <div class="section-head reveal">
             <span class="eyebrow">Ervaringen</span>
             <h2>Zo moet persoonlijke coaching voelen voor potentiële klanten.</h2>
-            <p>
-              Onderstaande testimonials zijn voorbeeldteksten voor de demo-opzet. Ze geven de juiste uitstraling en kunnen later
-              eenvoudig worden vervangen door echte klantreviews.
-            </p>
           </div>
 
           <div class="testimonial-grid">
@@ -1597,58 +1691,40 @@
         <div class="container">
           <div class="section-head reveal">
             <span class="eyebrow">Succesverhalen</span>
-            <h2>Voor en na resultaten die het verschil zichtbaar maken.</h2>
+            <h2>Resultaten die het verschil zichtbaar maken.</h2>
             <p>
-              Dit gedeelte is bedoeld voor before &amp; after foto's van klanten. Voor nu staat er een nette demo-opzet die later eenvoudig kan worden vervangen door echte beelden.
+              Echte klanten, echte resultaten. Bewijs dat een aanpak die past bij jouw leven ook écht werkt.
             </p>
           </div>
 
           <div class="success-grid">
             <article class="success-card reveal">
-              <div class="success-photos">
-                <div class="success-photo before" data-label="Before" aria-label="Voor foto placeholder"></div>
-                <div class="success-photo after" data-label="After" aria-label="Na foto placeholder"></div>
+              <div class="success-photo-wrapper">
+                <img src="./before-after1.jpeg" alt="Voor en na resultaat: -20kg in 6 maanden" class="success-photo-real" />
               </div>
               <div class="success-copy">
-                <h3>Meer structuur, meer zelfvertrouwen</h3>
-                <p>Voorbeeldcase voor een klant die werkte aan vetverlies, meer energie en een ritme dat naast werk goed vol te houden bleef.</p>
+                <h3>-20 kg in 6 maanden</h3>
+                <p>Van vastgelopen in oude gewoontes naar een compleet nieuwe leefstijl. Door consistente begeleiding, dagelijkse check-ins en een plan dat echt paste bij het dagelijks leven.</p>
               </div>
               <div class="success-meta">
                 <span>Vetverlies</span>
-                <span>12 weken</span>
-                <span>Voeding + training</span>
+                <span>6 maanden</span>
+                <span>-20 kg</span>
               </div>
             </article>
 
             <article class="success-card reveal">
-              <div class="success-photos">
-                <div class="success-photo before" data-label="Before" aria-label="Voor foto placeholder"></div>
-                <div class="success-photo after" data-label="After" aria-label="Na foto placeholder"></div>
+              <div class="success-photo-wrapper">
+                <img src="./before-after2.jpeg" alt="Voor en na resultaat: -9kg in 3 maanden" class="success-photo-real" />
               </div>
               <div class="success-copy">
-                <h3>Strakker, sterker en consistenter</h3>
-                <p>Voorbeeldcase voor een klant die niet alleen fysiek progressie wilde zien, maar ook meer grip wilde krijgen op dagelijkse gewoontes.</p>
+                <h3>-9 kg in 3 maanden</h3>
+                <p>Snelle, merkbare progressie door strakke structuur en persoonlijke feedback. Resultaat dat direct zichtbaar was én vol te houden bleef.</p>
               </div>
               <div class="success-meta">
-                <span>Spieropbouw</span>
-                <span>16 weken</span>
-                <span>Wekelijkse check-ins</span>
-              </div>
-            </article>
-
-            <article class="success-card reveal">
-              <div class="success-photos">
-                <div class="success-photo before" data-label="Before" aria-label="Voor foto placeholder"></div>
-                <div class="success-photo after" data-label="After" aria-label="Na foto placeholder"></div>
-              </div>
-              <div class="success-copy">
-                <h3>Van losse pogingen naar blijvende progressie</h3>
-                <p>Voorbeeldcase voor een klant die al vaker opnieuw begon en nu juist zocht naar houvast, duidelijkheid en resultaat dat bleef staan.</p>
-              </div>
-              <div class="success-meta">
-                <span>Leefstijl</span>
-                <span>10 weken</span>
-                <span>Duurzame aanpak</span>
+                <span>Vetverlies</span>
+                <span>3 maanden</span>
+                <span>-9 kg</span>
               </div>
             </article>
           </div>
@@ -1660,10 +1736,6 @@
           <div class="section-head reveal">
             <span class="eyebrow">Waarom klanten kiezen</span>
             <h2>Meer dan een schema: een complete coachingaanpak.</h2>
-            <p>
-              De site verkoopt niet alleen een dienst, maar een gevoel van kwaliteit, aandacht en vertrouwen. Daarom is de inhoud
-              opgebouwd rondom resultaat én beleving.
-            </p>
           </div>
 
           <div class="cards-3">
@@ -1691,16 +1763,12 @@
           <div class="section-head reveal">
             <span class="eyebrow">Contact</span>
             <h2>Klaar om serieus werk te maken van je doelen?</h2>
-            <p>
-              Laat je gegevens achter en vertel kort waar je naartoe wilt. Het formulier stuurt het bericht direct door naar Leau Fit &amp; Food,
-              zodat een potentiële klant laagdrempelig een eerste stap kan zetten.
-            </p>
           </div>
 
           <div class="contact-grid">
             <article class="contact-card form-panel reveal">
-              <h3>Vraag een kennismaking aan</h3>
-              <p>Vul het formulier in. Na verzending komt het bericht rechtstreeks binnen op het e-mailadres van de coach.</p>
+              <h3>Vraag een gratis intake aan</h3>
+              <p>Vul het formulier in.</p>
 
               <form id="contactForm" novalidate>
                 <div class="field-row">
@@ -1720,13 +1788,12 @@
                     <input type="tel" name="phone" autocomplete="tel" placeholder="06 12345678" />
                   </label>
                   <label>
-                    Doel
+                    Primair doel
                     <select name="goal" required>
-                      <option value="" selected disabled>Kies een doel</option>
+                      <option value="" selected disabled>Kies een primair doel</option>
                       <option value="Vetverlies">Vetverlies</option>
                       <option value="Spieropbouw">Spieropbouw</option>
-                      <option value="Sterker worden">Sterker worden</option>
-                      <option value="Algemene leefstijl">Algemene leefstijl</option>
+                      <option value="Nieuwe levensstijl">Nieuwe levensstijl</option>
                     </select>
                   </label>
                 </div>
@@ -1751,11 +1818,6 @@
             </article>
 
             <article class="contact-card dark reveal">
-              <h3>Direct contact</h3>
-              <p>
-                Liever eerst even kort contact? Gebruik onderstaande gegevens of laat direct een bericht achter via het formulier.
-              </p>
-
               <div class="contact-meta">
                 <div>
                   <strong>E-mail</strong>
@@ -1801,9 +1863,6 @@
           <div class="section-head reveal">
             <span class="eyebrow">Veelgestelde vragen</span>
             <h2>Vragen die vaak spelen voordat iemand contact opneemt.</h2>
-            <p>
-              Dit blok staat bewust onder het contactgedeelte, zodat bezoekers eerst kunnen handelen en daarna nog snel eventuele twijfels kunnen wegnemen.
-            </p>
           </div>
 
           <div class="faq-grid">
@@ -1822,6 +1881,10 @@
             <article class="faq-item reveal">
               <h3>Hoe snel kan ik starten?</h3>
               <p class="faq-answer">Na een eerste kennismaking kan er meestal snel worden geschakeld, afhankelijk van beschikbaarheid en het traject dat het beste bij je past.</p>
+            </article>
+            <article class="faq-item reveal">
+              <h3>Waar ligt de focus bij een traject?</h3>
+              <p class="faq-answer">De focus ligt altijd op intern resultaat: een betere relatie met jezelf, meer structuur, rust en eigenwaarde in je dagelijks leven. Wie goed voor zichzelf zorgt en zijn lichaam respecteert, ziet dat ook van de buitenkant — het externe resultaat volgt vanzelf.</p>
             </article>
           </div>
         </div>
