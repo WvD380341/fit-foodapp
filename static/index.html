@@ -963,6 +963,18 @@
         flex-wrap: wrap;
       }
 
+      .form-privacy {
+        margin: 0 0 16px;
+        font-size: 0.875rem;
+        color: var(--muted);
+      }
+
+      .form-privacy a,
+      .site-footer a {
+        color: inherit;
+        text-decoration: underline;
+      }
+
       .form-status {
         min-height: 24px;
         color: var(--fg-soft);
@@ -1828,6 +1840,11 @@
                   <input type="text" name="_honey" tabindex="-1" autocomplete="off" />
                 </label>
 
+                <p class="form-privacy">
+                  Door te versturen ga je akkoord met de <a href="./privacy.html">privacyverklaring</a>.
+                  Deel hier liever geen medische gegevens; dat bespreken we tijdens de intake.
+                </p>
+
                 <div class="form-footer">
                   <button class="btn btn-primary" type="submit">Verstuur aanvraag</button>
                   <div class="form-status" id="formStatus" aria-live="polite"></div>
@@ -1912,8 +1929,11 @@
     <footer class="site-footer">
       <div class="container">
         <span>© <span id="year"></span> Leau Fit &amp; Food — 1-op-1 coaching in fitness &amp; voeding.</span>
+        <a href="./privacy.html">Privacyverklaring</a>
       </div>
     </footer>
+
+    <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6f76daf1021342f8b14b05f6b7e1a774"}'></script><!-- End Cloudflare Web Analytics -->
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
